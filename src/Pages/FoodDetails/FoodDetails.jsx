@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from 'react-router';
 import { FaCartShopping } from "react-icons/fa6";
 import MultipleButton from '../../components/Button/MultipleButton';
 import { FaBookmark } from "react-icons/fa";
+import { setFavorite } from '../../Utilitys/Favorite/Favorite';
 
 const FoodDetails = () => {
     const mealData = useLoaderData();
@@ -10,6 +11,10 @@ const FoodDetails = () => {
     const detailsFood = mealData.find(food => food.idCategory === id);
     
     const {strCategory,strCategoryDescription,strCategoryThumb} = detailsFood;
+
+    const handleFavorite = (food) => {
+        setFavorite(food)
+    }
 
     
     return (
@@ -41,7 +46,8 @@ const FoodDetails = () => {
                     <div className="flex items-center">
                         
                         <MultipleButton label={<FaCartShopping size={20}/>}></MultipleButton>
-                        <MultipleButton label={<FaBookmark size={20}/>}></MultipleButton>
+
+                        <MultipleButton onClick={()=>handleFavorite(detailsFood)} label={<FaBookmark size={20}/>}></MultipleButton>
                     </div>
                     </div>
                 </div>
