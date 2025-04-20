@@ -1,10 +1,13 @@
-import React from 'react';
+// import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import { FaCartShopping } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
 import MultipleButton from '../Button/MultipleButton';
 
+
 const Navber = () => {
+    // const {card} = useContext(CardContext);
+    // console.log(card);
     return (
         <div>
             <div className="navbar bg-base-100 shadow-sm md:w-11/12 mx-auto md:mt-4">
@@ -71,7 +74,9 @@ const Navber = () => {
                             className={({isActive})=> 
                                 isActive && 'text-green-500'
                                 } 
-                            to='/card'><FaCartShopping size={20}/></NavLink>
+                            to='/card'><FaCartShopping size={20}/>
+                            {/* <p>{card.length}</p> */}
+                            </NavLink>
                         </li>
                         <li>
                             <NavLink 

@@ -14,7 +14,7 @@ const Router = createBrowserRouter([
             {
                 index: true,
                 hydrateFallbackElement: <span className="loading loading-spinner text-success"></span>,
-                loader: ()=> fetch('/Meal.json'),
+                loader: ()=> fetch('Meal.json'),
                 Component: Home
             },
             {

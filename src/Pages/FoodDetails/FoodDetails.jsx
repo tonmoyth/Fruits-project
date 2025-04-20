@@ -4,18 +4,21 @@ import { FaCartShopping } from "react-icons/fa6";
 import MultipleButton from '../../components/Button/MultipleButton';
 import { FaBookmark } from "react-icons/fa";
 import { setFavorite } from '../../Utilitys/Favorite/Favorite';
+import { setCard } from '../../Utilitys/Card';
 
 const FoodDetails = () => {
     const mealData = useLoaderData();
     const {id} = useParams();
     const detailsFood = mealData.find(food => food.idCategory === id);
-    
     const {strCategory,strCategoryDescription,strCategoryThumb} = detailsFood;
 
     const handleFavorite = (food) => {
         setFavorite(food)
     }
 
+    const handleCard = () => {
+        setCard(detailsFood)
+    }
     
     return (
         <div className='md:w-11/12 mx-auto my-4'>
@@ -45,7 +48,7 @@ const FoodDetails = () => {
                     </p>
                     <div className="flex items-center">
                         
-                        <MultipleButton label={<FaCartShopping size={20}/>}></MultipleButton>
+                        <MultipleButton onClick={handleCard} label={<FaCartShopping size={20}/>}></MultipleButton>
 
                         <MultipleButton onClick={()=>handleFavorite(detailsFood)} label={<FaBookmark size={20}/>}></MultipleButton>
                     </div>
